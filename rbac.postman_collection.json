@@ -1,0 +1,1872 @@
+{
+	"info": {
+		"_postman_id": "2e833987-0924-48fa-b5d6-c32a98e35396",
+		"name": "rbac",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Authorizations",
+					"item": [
+						{
+							"name": "登录",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yYmFjLnRlc3RcL2FkbWluXC92MVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1NzY4MzIxMDQsImV4cCI6MTU3NjgzNTcwNCwibmJmIjoxNTc2ODMyMTA0LCJqdGkiOiJYQUJnT3dtTUlUeVc4TDc0Iiwic3ViIjoxLCJwcnYiOiJjZjI4NGMyYjFlMDZmMzNjMjZiZDU3OTc1NjZkOWZkNzRiZTExYmY1In0.Lq3q23VsXPs_zvS2u1E9iPyfEC3WqRxpY8EoWDSzeHs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "root",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/authorizations",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"authorizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刷新 token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwOTQzNCwiZXhwIjoxNTc2ODEzMDM0LCJuYmYiOjE1NzY4MDk0MzQsImp0aSI6Im03SGJWeVJUejA5b0xYYWciLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.mdiBfWGHU397oAO_Hmt5uaBQY8VHf5Jj2U8RwrQ9v3Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/authorizations/current",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"authorizations",
+										"current"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "退出",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9uc1wvY3VycmVudCIsImlhdCI6MTU3NjgwOTQzNCwiZXhwIjoxNTc2ODEzMDU2LCJuYmYiOjE1NzY4MDk0NTYsImp0aSI6IlE2TFNpSXE3UE1KT28xWlQiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.7rf78jCx4sAkUTM88S8Sf6vtObHtclQmMEctIfN8WKo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/authorizations/current",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"authorizations",
+										"current"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Admins",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查看当前用户",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token2}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/current/show",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										"current",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "详情",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin3",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "123@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改当前用户",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "12345678@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/current/update",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										"current",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin33",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "123456@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "关联角色",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "roles[]",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "roles[]",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "roles[]",
+											"value": "333",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/admins/:id/syncRoles",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"admins",
+										":id",
+										"syncRoles"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"type": "string",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles?include=permissions&language=en",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "permissions"
+										},
+										{
+											"key": "language",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "详情",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles/:id?include=permissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles",
+										":id"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "permissions"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "测试4",
+											"type": "text"
+										},
+										{
+											"key": "name_en",
+											"value": "test4",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles?language=zh-CN",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "zh-CN"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "",
+										"type": "text",
+										"value": ""
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "测试2",
+											"type": "text"
+										},
+										{
+											"key": "name_en",
+											"value": "test1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles/:id?language=en",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles",
+										":id"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "en"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "ec36b50a-4f09-4736-bad6-cfe840b9c7ec",
+											"key": "id",
+											"value": "2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "关联权限",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "permissions[]",
+											"value": "admin.admins.store",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "permissions[]",
+											"value": "admin.products.store",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "permissions[]",
+											"value": "admin.categories.store",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "permissions[]",
+											"value": "admin.categories.show",
+											"type": "text"
+										},
+										{
+											"key": "permissions[]",
+											"value": "admin.admins.update",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "permissions[]",
+											"value": "admin.admins.index",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/roles/:id/syncPermissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"roles",
+										":id",
+										"syncPermissions"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "列表",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yYmFjLnRlc3RcL2FkbWluXC92MVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1NzY4MjI4ODgsImV4cCI6MTU3NjgyNjQ4OCwibmJmIjoxNTc2ODIyODg4LCJqdGkiOiJBTHZOMkU4ck55ZUFjRlVUIiwic3ViIjoxLCJwcnYiOiJjZjI4NGMyYjFlMDZmMzNjMjZiZDU3OTc1NjZkOWZkNzRiZTExYmY1In0.4UJ24DWQyz8hTe6tDpdIOERbuy0nINF81tsqh6fmBpE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://{{host}}/admin/v1/permissions?language=en",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"admin",
+										"v1",
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "Authorizations",
+					"item": [
+						{
+							"name": "登录",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "root",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/authorizations",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authorizations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "刷新 token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwOTQzNCwiZXhwIjoxNTc2ODEzMDM0LCJuYmYiOjE1NzY4MDk0MzQsImp0aSI6Im03SGJWeVJUejA5b0xYYWciLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.mdiBfWGHU397oAO_Hmt5uaBQY8VHf5Jj2U8RwrQ9v3Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/authorizations/current",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authorizations",
+										"current"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "退出",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9uc1wvY3VycmVudCIsImlhdCI6MTU3NjgwOTQzNCwiZXhwIjoxNTc2ODEzMDU2LCJuYmYiOjE1NzY4MDk0NTYsImp0aSI6IlE2TFNpSXE3UE1KT28xWlQiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.7rf78jCx4sAkUTM88S8Sf6vtObHtclQmMEctIfN8WKo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/api/v1/authorizations/current",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"authorizations",
+										"current"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "查看当前用户",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYXBpXC92MVwvYXV0aG9yaXphdGlvbnMiLCJpYXQiOjE1NzY4MDkxOTcsImV4cCI6MTU3NjgxMjc5NywibmJmIjoxNTc2ODA5MTk3LCJqdGkiOiJiRTdFR3ltNVRxOVZiNUdSIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.-aUy-oCU9_QMLK3mZeORM4xXbwQ16aus4olmizGiYP4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/users/current/show",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"current",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "详情",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/users/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin3",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "123@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改当前用户",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "12345678@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/users/current/update",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"current",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "admin33",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "123456@qq.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/users/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9qd3QudGVzdFwvYWRtaW5cL3YxXC9hdXRob3JpemF0aW9ucyIsImlhdCI6MTU3NjgwNzE1OCwiZXhwIjoxNTc2ODEwNzU4LCJuYmYiOjE1NzY4MDcxNTgsImp0aSI6IlVQYVVYaURSZk91WlhQZkwiLCJzdWIiOjEsInBydiI6ImNmMjg0YzJiMWUwNmYzM2MyNmJkNTc5NzU2NmQ5ZmQ3NGJlMTFiZjUifQ.HX2_GFdDG0puA5Z6wUZxHVUrHmJt69a2qd8x3rxYF4Y",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/users/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles?include=permissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "permissions"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "详情",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles/:id?include=permissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles",
+										":id"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "permissions"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "新增",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "测试1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "修改",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "",
+										"type": "text",
+										"value": ""
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "店员",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "删除",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles/:id",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "关联权限",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "permissions[]",
+											"value": "api.users.index",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://{{host}}/api/v1/roles/:id/syncPermissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"roles",
+										":id",
+										"syncPermissions"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"type": "string",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Permissions",
+					"item": [
+						{
+							"name": "列表",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt_token_api}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://{{host}}/api/v1/permissions",
+									"protocol": "http",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"permissions"
+									],
+									"query": [
+										{
+											"key": "language",
+											"value": "ja-JP",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

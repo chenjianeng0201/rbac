@@ -52,8 +52,7 @@ class RolesController extends Controller
      */
     public function store(RoleRequest $request, Role $role)
     {
-        $names = User::getAllowedRoleNames();
-        $role = $role::create($request->only($names));
+        $role = $role::create($request->only(User::ROLE_NAME));
         return new RoleResource($role);
     }
 
@@ -68,8 +67,8 @@ class RolesController extends Controller
     public function update(RoleRequest $request, Role $role)
     {
         $this->authorizeForUser(Auth::guard('api')->user(), 'authorize', $role);
-        $names = User::getAllowedRoleNames();
-        $role->update($request->only($names));
+
+        $role->update($request->only(User::ROLE_NAME));
         return new RoleResource($role);
     }
 
